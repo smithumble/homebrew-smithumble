@@ -9,6 +9,11 @@ class OpensslAT10 < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2t.tar.gz"
   sha256 "14cb464efe7ac6b54799b34456bd69558a749a4931ecfd9cf9f71d7881cac7bc"
 
+  bottle do
+    root_url "https://dl.bintray.com/smithumble/bottles-smithumble"
+    sha256 "b60acc481699c8392336ef06877c89e6a7620c0a193bd4a0f80c7969951320ba" => :catalina
+  end
+
   keg_only :provided_by_macos,
     "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
 
