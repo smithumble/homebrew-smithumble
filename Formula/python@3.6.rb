@@ -5,6 +5,11 @@ class PythonAT36 < Formula
   sha256 "f434053ba1b5c8a5cc597e966ead3c5143012af827fd3f0697d21450bb8d87a6"
   license "Python-2.0"
 
+  bottle do
+    root_url "https://dl.bintray.com/smithumble/bottles-smithumble"
+    sha256 "cc7b60a210657151a31b55774f13c81079e0260b83eb40048e134a28495e7ad8" => :catalina
+  end
+
   # setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? do
