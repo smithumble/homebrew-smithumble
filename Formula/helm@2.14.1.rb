@@ -9,7 +9,7 @@ class HelmAT2141 < Formula
   bottle do
     root_url "https://dl.bintray.com/smithumble/bottles-smithumble"
     cellar :any_skip_relocation
-    sha256 "3bffcbba724332cacbb0740f57c8da4e68ef51cd87abab250e74ca87930d1797" => :catalina
+    sha256 "314c8d41dbc2781d2d5ecdee02c1697133b19f2fa31527a3964ffb333f2cfad9" => :catalina
   end
 
   depends_on "glide" => :build
