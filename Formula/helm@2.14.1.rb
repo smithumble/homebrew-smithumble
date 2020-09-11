@@ -2,8 +2,8 @@ class HelmAT2141 < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      :tag      => "v2.14.1",
-      :revision => "5270352a09c7e8b6e8c9593002a73535276507c0"
+      tag:      "v2.14.1",
+      revision: "5270352a09c7e8b6e8c9593002a73535276507c0"
   head "https://github.com/helm/helm.git"
 
   bottle do
@@ -32,7 +32,6 @@ class HelmAT2141 < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-
       system "make", "bootstrap"
       system "make", "build"
 
@@ -40,10 +39,10 @@ class HelmAT2141 < Formula
       bin.install "bin/tiller"
       man1.install Dir["docs/man/man1/*"]
 
-      output = Utils.popen_read("SHELL=bash #{bin}/helm completion bash")
+      output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/helm completion bash")
       (bash_completion/"helm").write output
 
-      output = Utils.popen_read("SHELL=zsh #{bin}/helm completion zsh")
+      output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/helm completion zsh")
       (zsh_completion/"_helm").write output
 
       prefix.install_metafiles
@@ -55,7 +54,9 @@ class HelmAT2141 < Formula
     assert File.directory? "#{testpath}/foo/charts"
 
     version_output = shell_output("#{bin}/helm version --client 2>&1")
-    assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output if build.stable?
+    if build.stable?
+      assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output
+    end
   end
 end
 
