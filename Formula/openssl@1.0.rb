@@ -11,7 +11,8 @@ class OpensslAT10 < Formula
 
   bottle do
     root_url "https://dl.bintray.com/smithumble/bottles-smithumble"
-    sha256 "b60acc481699c8392336ef06877c89e6a7620c0a193bd4a0f80c7969951320ba" => :catalina
+    rebuild 1
+    sha256 "92455a41913ba6376fb37b50fa852d93f5a9dfc4da01151aa27fec5fc104bf3a" => :catalina
   end
 
   keg_only :provided_by_macos,
