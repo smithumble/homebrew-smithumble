@@ -17,8 +17,6 @@ brew install smithumble/smithumble/<formula>
 
 ## List of available formula's:
 
-- ``python@3.6``
-- ``openssl@1.0``
 - ``helm@2.14.1``
 
 
