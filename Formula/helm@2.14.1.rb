@@ -6,12 +6,6 @@ class HelmAT2141 < Formula
       revision: "5270352a09c7e8b6e8c9593002a73535276507c0"
   head "https://github.com/helm/helm.git"
 
-  bottle do
-    root_url "https://dl.bintray.com/smithumble/bottles-smithumble"
-    cellar :any_skip_relocation
-    sha256 "314c8d41dbc2781d2d5ecdee02c1697133b19f2fa31527a3964ffb333f2cfad9" => :catalina
-  end
-
   depends_on "glide" => :build
   depends_on "go" => :build
 
